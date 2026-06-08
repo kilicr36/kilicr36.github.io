@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" font-family="Georgia, serif" font-size="13">
+  <title>Forecast accuracy by horizon and model type</title>
+  <desc>Schematic diagram showing MSHAR (regime-switching) leads at the 1-day horizon, ARFIMA (long memory) leads at the 1-month horizon, and machine-learning models occupy a middle band throughout.</desc>
+
+  <!-- Background -->
+  <rect width="640" height="360" fill="#f9f8f5"/>
+
+  <!-- ML shaded band -->
+  <rect x="100" y="130" width="460" height="108" rx="5"
+        fill="#e6e4de" fill-opacity="0.55"
+        stroke="#888880" stroke-width="0.8" stroke-dasharray="4 3"/>
+
+  <!-- ML band label -->
+  <text x="572" y="186" font-family="'Instrument Sans', system-ui, sans-serif"
+        font-size="11" fill="#888880" text-anchor="start">ML range</text>
+
+  <!-- Vertical axis -->
+  <line x1="100" y1="60" x2="100" y2="290" stroke="#888880" stroke-width="0.8"/>
+  <!-- Horizontal axis -->
+  <line x1="100" y1="290" x2="580" y2="290" stroke="#888880" stroke-width="0.8"/>
+
+  <!-- Y-axis labels -->
+  <text x="92" y="72" font-family="'Instrument Sans', system-ui, sans-serif"
+        font-size="11" fill="#888880" text-anchor="end">Best</text>
+  <text x="92" y="284" font-family="'Instrument Sans', system-ui, sans-serif"
+        font-size="11" fill="#888880" text-anchor="end">Worst</text>
+
+  <!-- Rotated Y-axis title -->
+  <text transform="rotate(-90,38,185)"
+        x="38" y="185"
+        font-family="'Instrument Sans', system-ui, sans-serif"
+        font-size="11" fill="#888880" text-anchor="middle">Relative forecast accuracy</text>
+
+  <!-- X-axis tick marks and labels -->
+  <line x1="200" y1="290" x2="200" y2="296" stroke="#888880" stroke-width="0.8"/>
+  <line x1="350" y1="290" x2="350" y2="296" stroke="#888880" stroke-width="0.8"/>
+  <line x1="500" y1="290" x2="500" y2="296" stroke="#888880" stroke-width="0.8"/>
+
+  <text x="200" y="311" font-family="'Instrument Sans', system-ui, sans-serif"
+        font-size="11" fill="#4c4c48" text-anchor="middle">1 day</text>
+  <text x="350" y="311" font-family="'Instrument Sans', system-ui, sans-serif"
+        font-size="11" fill="#4c4c48" text-anchor="middle">1 week</text>
+  <text x="500" y="311" font-family="'Instrument Sans', system-ui, sans-serif"
+        font-size="11" fill="#4c4c48" text-anchor="middle">1 month</text>
+
+  <!-- X-axis title -->
+  <text x="350" y="332" font-family="'Instrument Sans', system-ui, sans-serif"
+        font-size="11" fill="#888880" text-anchor="middle">Forecast horizon</text>
+
+  <!-- MSHAR curve: strong at h=1, weakens at h=22 -->
+  <!-- Points: (200,78), (350,148), (500,192) -->
+  <path d="M200,78 C265,96 305,134 350,148 C395,162 445,182 500,192"
+        fill="none" stroke="#185FA5" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="200" cy="78"  r="5" fill="#185FA5"/>
+  <circle cx="350" cy="148" r="4" fill="#185FA5"/>
+  <circle cx="500" cy="192" r="4" fill="#185FA5"/>
+
+  <!-- ARFIMA curve: weak at h=1, strong at h=22 -->
+  <!-- Points: (200,208), (350,158), (500,90) -->
+  <path d="M200,208 C255,194 305,172 350,158 C395,144 445,114 500,90"
+        fill="none" stroke="#993C1D" stroke-width="2.4" stroke-linecap="round"
+        stroke-dasharray="7 4"/>
+  <circle cx="200" cy="208" r="4" fill="#993C1D"/>
+  <circle cx="350" cy="158" r="4" fill="#993C1D"/>
+  <circle cx="500" cy="90"  r="5" fill="#993C1D"/>
+
+  <!-- Callout: h=1 MSHAR leads -->
+  <rect x="108" y="50" width="128" height="34" rx="4"
+        fill="#E6F1FB" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="172" y="65" font-family="'Instrument Sans', system-ui, sans-serif"
+        font-size="11" font-weight="600" fill="#0C447C" text-anchor="middle">MSHAR leads</text>
+  <text x="172" y="78" font-family="'Instrument Sans', system-ui, sans-serif"
+        font-size="10" fill="#185FA5" text-anchor="middle">regime-switching</text>
+  <line x1="172" y1="84" x2="200" y2="76"
+        stroke="#185FA5" stroke-width="0.6" stroke-dasharray="2 2"/>
+
+  <!-- Callout: h=5 transition -->
+  <rect x="286" y="50" width="128" height="34" rx="4"
+        fill="#f1efe8" stroke="#888880" stroke-width="0.8"/>
+  <text x="350" y="65" font-family="'Instrument Sans', system-ui, sans-serif"
+        font-size="11" font-weight="600" fill="#444441" text-anchor="middle">Transition zone</text>
+  <text x="350" y="78" font-family="'Instrument Sans', system-ui, sans-serif"
+        font-size="10" fill="#5F5E5A" text-anchor="middle">both models compete</text>
+
+  <!-- Callout: h=22 ARFIMA leads -->
+  <rect x="436" y="50" width="128" height="34" rx="4"
+        fill="#FAECE7" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="500" y="65" font-family="'Instrument Sans', system-ui, sans-serif"
+        font-size="11" font-weight="600" fill="#712B13" text-anchor="middle">ARFIMA leads</text>
+  <text x="500" y="78" font-family="'Instrument Sans', system-ui, sans-serif"
+        font-size="10" fill="#993C1D" text-anchor="middle">long memory</text>
+  <line x1="500" y1="84" x2="500" y2="88"
+        stroke="#993C1D" stroke-width="0.6" stroke-dasharray="2 2"/>
+
+  <!-- Legend -->
+  <line x1="116" y1="344" x2="140" y2="344"
+        stroke="#185FA5" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="128" cy="344" r="3.5" fill="#185FA5"/>
+  <text x="145" y="348" font-family="'Instrument Sans', system-ui, sans-serif"
+        font-size="11" fill="#4c4c48">MSHAR (regime-switching)</text>
+
+  <line x1="316" y1="344" x2="340" y2="344"
+        stroke="#993C1D" stroke-width="2.4" stroke-linecap="round"
+        stroke-dasharray="7 4"/>
+  <circle cx="328" cy="344" r="3.5" fill="#993C1D"/>
+  <text x="345" y="348" font-family="'Instrument Sans', system-ui, sans-serif"
+        font-size="11" fill="#4c4c48">ARFIMA (long memory)</text>
+
+  <rect x="504" y="338" width="14" height="12" rx="2"
+        fill="#e6e4de" stroke="#888880" stroke-width="0.8"/>
+  <text x="522" y="348" font-family="'Instrument Sans', system-ui, sans-serif"
+        font-size="11" fill="#4c4c48">ML range</text>
+</svg>

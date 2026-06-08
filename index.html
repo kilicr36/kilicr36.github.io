@@ -105,6 +105,15 @@ body { display: flex; font-family: var(--serif); font-size: 17px; line-height: 1
   border-radius: 4px; background: #dce9f5; transition: background 0.15s; }
 .extlink:hover { background: #c8daf0; }
 
+/* OVERVIEW */
+.overview { margin-top: 1rem; padding: 1rem 1.1rem; border-left: 2px solid var(--ink-faint); }
+.overview p { font-size: 14.5px; color: var(--ink-mid); line-height: 1.7; margin-bottom: 0.75rem; }
+.overview p:last-of-type { margin-bottom: 0; }
+.paper-fig { margin-top: 1.1rem; }
+.paper-fig img { width: 100%; max-width: 580px; display: block; }
+.paper-fig figcaption { font-family: var(--sans); font-size: 11.5px; color: var(--ink-light);
+  margin-top: 0.45rem; line-height: 1.5; max-width: 560px; font-style: italic; }
+
 /* MOBILE */
 @media (max-width: 640px) {
   body { flex-direction: column; }
@@ -220,7 +229,16 @@ body { display: flex; font-family: var(--serif); font-size: 17px; line-height: 1
     <ul class="plist">
       <li>
         <div class="ptitle">&ldquo;Linear and Nonlinear Econometric Models Against Machine Learning Models: Realized Volatility Prediction&rdquo; <span class="badge br">Under Review</span></div>
-        <div class="pmeta">Revise &amp; resubmit. &nbsp;<a href="#">FEDS Working Paper</a></div>
+        <div class="pmeta">Revise &amp; resubmit, <em>International Journal of Forecasting</em>. &nbsp;<a href="#">FEDS Working Paper</a></div>
+        <div class="overview">
+          <p>This paper asks whether machine-learning methods can outperform the best traditional statistical models for forecasting stock market volatility. Using S&amp;P 500 data from 2006 to 2025&mdash;spanning the Global Financial Crisis, COVID-19, and the post-pandemic inflation episode&mdash;it compares a broad set of approaches including gradient-boosted trees (XGBoost), deep neural networks, and recurrent networks (LSTM, GRU) against time-series econometric models specifically designed for volatility.</p>
+          <p>The main finding is horizon-dependent. At short horizons (one day ahead), a Markov-switching model that allows the volatility process to shift between high- and low-risk regimes consistently outperforms all machine-learning alternatives. At longer horizons (one month ahead), a long-memory model (ARFIMA) that captures the slow, persistent decay of volatility shocks becomes the clear leader. Machine-learning models, despite their flexibility, do not dominate at any horizon. These conclusions hold for individual stocks (Apple, JPMorgan, Nvidia, and others) and are robust to more frequent model updating, alternative loss functions, and different target transformations.</p>
+          <p>The broader implication is that adding computational complexity does not automatically improve forecasts. What matters is whether a model&rsquo;s structure matches the actual dynamics of the data. For volatility forecasting, well-designed econometric models that explicitly encode regime-switching and long memory remain highly competitive&mdash;and often superior&mdash;to more flexible machine-learning alternatives.</p>
+          <figure class="paper-fig">
+            <img src="rv_figure.svg" alt="Chart showing MSHAR leads at short horizons, ARFIMA leads at long horizons, and ML models occupy a middle band throughout">
+            <figcaption>Schematic ranking of model accuracy by forecast horizon. MSHAR (regime-switching) dominates at the one-day horizon; ARFIMA (long memory) dominates at the one-month horizon. Machine-learning models remain competitive but do not displace the leading econometric specifications at any horizon.</figcaption>
+          </figure>
+        </div>
       </li>
       <li>
         <div class="ptitle">&ldquo;Virtue or Mirage? Complexity in Exchange Rate Prediction&rdquo; <span class="badge br">Under Review</span></div>
