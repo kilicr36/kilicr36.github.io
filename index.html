@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rehim Kilic | Economist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a18;
+    --ink-mid: #4a4a46;
+    --ink-light: #7a7a74;
+    --ink-faint: #e8e6e0;
+    --paper: #faf9f6;
+    --accent: #2b4a7a;
+    --accent-light: #d6e2f0;
+    --serif: 'EB Garamond', Georgia, serif;
+    --sans: 'Instrument Sans', system-ui, sans-serif;
+    --max: 720px;
+    --col-gap: 2rem;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--ink-faint);
+    z-index: 100;
+    padding: 0 2rem;
+  }
+  nav ul {
+    max-width: var(--max);
+    margin: 0 auto;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 52px;
+  }
+  nav ul li:first-child { margin-right: auto; }
+  nav a {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-mid);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 3px;
+    transition: color 0.15s, background 0.15s;
+  }
+  nav a:hover { color: var(--ink); background: var(--ink-faint); }
+  nav .nav-name a {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--ink);
+    padding-left: 0;
+    background: none;
+  }
+  nav .nav-name a:hover { background: none; color: var(--accent); }
+
+  /* ── LAYOUT ── */
+  .page {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ── HEADER ── */
+  header {
+    padding: 5rem 0 3.5rem;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  header h1 {
+    font-family: var(--serif);
+    font-size: 2.6rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 0.6rem;
+    color: var(--ink);
+  }
+  .header-sub {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--ink-mid);
+    letter-spacing: 0.02em;
+    margin-bottom: 1.5rem;
+  }
+  .header-bio {
+    font-size: 16px;
+    color: var(--ink-mid);
+    max-width: 600px;
+    line-height: 1.7;
+  }
+  .header-contact {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--ink-light);
+  }
+  .header-contact a { color: var(--accent); text-decoration: none; }
+  .header-contact a:hover { text-decoration: underline; }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 3.5rem 0;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  section:last-of-type { border-bottom: none; }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+
+  /* ── PAPER LIST ── */
+  .paper-list { list-style: none; }
+  .paper-list li {
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .paper-list li:last-child { border-bottom: none; }
+  .paper-title {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.5;
+    margin-bottom: 0.2rem;
+  }
+  .paper-title a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .paper-title a:hover { text-decoration: underline; }
+  .paper-meta {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--ink-light);
+    line-height: 1.5;
+  }
+  .paper-meta em { font-style: italic; color: var(--ink-mid); }
+  .badge {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .badge-review { background: #e8f0e8; color: #2d6a2d; }
+  .badge-prep   { background: #f0e8d8; color: #7a4a10; }
+  .badge-wip    { background: #e8edf5; color: #2b4a7a; }
+
+  /* ── POLICY LIST ── */
+  .policy-list { list-style: none; }
+  .policy-list li {
+    padding: 0.9rem 0;
+    border-bottom: 1px dotted var(--ink-faint);
+    display: flex;
+    gap: var(--col-gap);
+  }
+  .policy-list li:last-child { border-bottom: none; }
+  .policy-year {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--ink-light);
+    min-width: 60px;
+    padding-top: 2px;
+  }
+  .policy-desc { font-size: 15.5px; line-height: 1.6; }
+
+  /* ── TEACHING ── */
+  .teaching-block { margin-bottom: 2rem; }
+  .teaching-block h3 {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-light);
+    margin-bottom: 0.75rem;
+  }
+  .teaching-block ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .teaching-block ul li {
+    font-size: 15.5px;
+    color: var(--ink-mid);
+    padding-left: 1.1rem;
+    position: relative;
+  }
+  .teaching-block ul li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--ink-faint);
+  }
+
+  /* ── LINKS SECTION ── */
+  .links-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .ext-link {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 0.5rem 1.1rem;
+    border: 1px solid var(--accent-light);
+    border-radius: 4px;
+    background: var(--accent-light);
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .ext-link:hover { background: #c2d5ec; border-color: #a8c4e0; }
+
+  /* ── DISCLAIMER ── */
+  .disclaimer {
+    margin-top: 2.5rem;
+    padding: 1rem 1.25rem;
+    border-left: 3px solid var(--ink-faint);
+    font-family: var(--sans);
+    font-size: 12.5px;
+    color: var(--ink-light);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem 0 3rem;
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--ink-light);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 2rem; }
+    nav ul { gap: 0; }
+    nav a { padding: 4px 8px; font-size: 12px; }
+    .policy-list li { flex-direction: column; gap: 0.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li class="nav-name"><a href="#top">Rehim Kilic</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#working-papers">Working Papers</a></li>
+    <li><a href="#policy">Policy Work</a></li>
+    <li><a href="#linkedin">LinkedIn</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+  </ul>
+</nav>
+
+<div class="page" id="top">
+
+  <!-- HEADER -->
+  <header>
+    <h1>Rehim Kilic</h1>
+    <p class="header-sub">Principal Economist &nbsp;·&nbsp; Federal Reserve Board of Governors &nbsp;·&nbsp; Washington, DC</p>
+    <p class="header-bio">
+      Economist specializing in econometrics, machine learning, financial econometrics,
+      and time series analysis, with applications to economic policy, financial stability,
+      and risk management. My research develops and applies advanced quantitative methods
+      to problems in exchange rates, volatility modeling, forecasting, and financial markets.
+    </p>
+    <div class="header-contact">
+      <span>kilicr36@gmail.com</span>
+      <span>+1 202 468 1012</span>
+      <span>Washington, DC</span>
+    </div>
+  </header>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <h2>Publications</h2>
+    <ol class="paper-list">
+
+      <li>
+        <div class="paper-title">"Robust Inference for Predictability in Smooth Transition Predictive Regressions"</div>
+        <div class="paper-meta"><em>Econometric Reviews</em> 37, 2018, pp. 1067–1094.</div>
+      </li>
+
+      <li>
+        <div class="paper-title">"Tests for Linearity in STAR Models: SupWald and LM-type Tests"</div>
+        <div class="paper-meta"><em>Journal of Time Series Analysis</em> 37, 2016, pp. 660–674.</div>
+      </li>
+
+      <li>
+        <div class="paper-title">"Regime-Dependent Exchange Rate Pass-Through to Import Prices"</div>
+        <div class="paper-meta"><em>Review of International Economics and Finance</em> 41, 2016, pp. 295–308.</div>
+      </li>
+
+      <li>
+        <div class="paper-title">"Long Run Equilibrium and Short Run Dynamics Between Risk Exposure and Highway Safety"</div>
+        <div class="paper-meta">With P. McCarthy. <em>Empirical Economics</em> 42, 2012, pp. 899–913.</div>
+      </li>
+
+      <li>
+        <div class="paper-title">"Testing for Co-integration and Nonlinear Adjustment in a Smooth Transition Error Correction Model"</div>
+        <div class="paper-meta"><em>Journal of Time Series Analysis</em> 32, 2011, pp. 647–660.</div>
+      </li>
+
+      <li>
+        <div class="paper-title">"Long Memory and Nonlinearity in Conditional Variances: A Smooth Transition FIGARCH Model"</div>
+        <div class="paper-meta"><em>Journal of Empirical Finance</em> 18, 2011, pp. 368–378.</div>
+      </li>
+
+      <li>
+        <div class="paper-title">"Investment Intensity of Currencies and the Random Walk Hypothesis: Cross-Currency Evidence"</div>
+        <div class="paper-meta">With C. Eun and T. Chuulun. <em>Journal of Banking and Finance</em> 35, 2011, pp. 372–387.</div>
+      </li>
+
+      <li>
+        <div class="paper-title">"A Testing Procedure for a Linear Unit Root Against Stationary ESTAR Process"</div>
+        <div class="paper-meta"><em>Econometric Reviews</em> 30, 2011, pp. 274–302.</div>
+      </li>
+
+      <li>
+        <div class="paper-title">"A Conditional Variance Tale from an Emerging Economy's Freely Floating Exchange Rate"</div>
+        <div class="paper-meta"><em>Applied Economics</em> 43, 2011, pp. 2465–2480.</div>
+      </li>
+
+      <li>
+        <div class="paper-title">"Nonlinearity and Persistence in PPP: Does Controlling for Nonlinearity Solve the PPP Puzzle?"</div>
+        <div class="paper-meta"><em>Review of International Economics</em> 17(3), 2009, pp. 570–587.</div>
+      </li>
+
+      <li>
+        <div class="paper-title">"Further on the Nonlinearity, Persistence, and Integration Properties of Real Exchange Rates"</div>
+        <div class="paper-meta"><em>Journal of International Financial Markets, Institutions and Money</em> 19, 2009, pp. 207–221.</div>
+      </li>
+
+      <li>
+        <div class="paper-title">"Conditional Volatility and Distribution of Exchange Rates: GARCH and FIGARCH Models with NIG Distribution"</div>
+        <div class="paper-meta"><em>Studies in Nonlinear Dynamics &amp; Econometrics</em> 11(3), 2007, pp. 1–33. <span style="font-style:italic;color:var(--ink-light);">Lead Article.</span></div>
+      </li>
+
+      <li>
+        <div class="paper-title">"Do Asymmetric and Nonlinear Adjustments Explain the Forward Premium Anomaly?"</div>
+        <div class="paper-meta">With R. T. Baillie. <em>Journal of International Money and Finance</em> 25, 2006, pp. 22–47.</div>
+      </li>
+
+      <li>
+        <div class="paper-title">"Linearity Tests and Stationarity"</div>
+        <div class="paper-meta"><em>The Econometrics Journal</em> 7, 2004, pp. 55–62.</div>
+      </li>
+
+      <li>
+        <div class="paper-title">"On the Long Memory Properties of Emerging Capital Markets: Evidence from Istanbul Stock Exchange"</div>
+        <div class="paper-meta"><em>Applied Financial Economics</em> 14, 2004, pp. 915–922.</div>
+      </li>
+
+    </ol>
+  </section>
+
+  <!-- WORKING PAPERS -->
+  <section id="working-papers">
+    <h2>Working Papers</h2>
+    <ul class="paper-list">
+
+      <li>
+        <div class="paper-title">
+          "Linear and Nonlinear Econometric Models Against Machine Learning Models: Realized Volatility Prediction"
+          <span class="badge badge-review">Under Review</span>
+        </div>
+        <div class="paper-meta">Revise &amp; resubmit at <em>International Journal of Forecasting</em>. &nbsp;<a href="#">FEDS Working Paper Version</a></div>
+      </li>
+
+      <li>
+        <div class="paper-title">
+          "Virtue or Mirage? Complexity in Exchange Rate Prediction"
+          <span class="badge badge-review">Under Review</span>
+        </div>
+        <div class="paper-meta">Under review at <em>Journal of Banking and Finance</em>. &nbsp;<a href="#">FEDS Working Paper Version</a></div>
+      </li>
+
+      <li>
+        <div class="paper-title">
+          "Identifying Conditions for Time Series Forecasting Performances of ML Models: A Monte Carlo Investigation"
+          <span class="badge badge-prep">In Preparation</span>
+        </div>
+        <div class="paper-meta">With N. Ozden (University of Houston). First draft: August 2025.</div>
+      </li>
+
+      <li>
+        <div class="paper-title">
+          "Margin Requirements and Interest Rate Sensitivity of CCP Balances at the Fed"
+          <span class="badge badge-prep">In Preparation</span>
+        </div>
+        <div class="paper-meta">First draft: May 2025. &nbsp;<a href="#">FEDS Working Paper Version</a></div>
+      </li>
+
+      <li>
+        <div class="paper-title">
+          "Uncovered Interest Rate, Overshooting, and Predictability Reversal Puzzles in an Emerging Economy"
+          <span class="badge badge-prep">In Preparation</span>
+        </div>
+        <div class="paper-meta">First draft: November 2023. &nbsp;<a href="#">FEDS Working Paper Version</a></div>
+      </li>
+
+      <li>
+        <div class="paper-title">
+          "Threshold Effects in Margin Dynamics"
+          <span class="badge badge-prep">In Preparation</span>
+        </div>
+        <div class="paper-meta">With Y. Heppe (UC San Diego). First draft: May 2023.</div>
+      </li>
+
+      <li>
+        <div class="paper-title">
+          "LLMs as FOMC Members: How LLMs Fail or Succeed in Forecasting Individual Projections"
+          <span class="badge badge-wip">Work in Progress</span>
+        </div>
+      </li>
+
+      <li>
+        <div class="paper-title">
+          "Machine Learning Complexity and Market Volatility Predictability"
+          <span class="badge badge-wip">Work in Progress</span>
+        </div>
+      </li>
+
+      <li>
+        <div class="paper-title">
+          "LSTM Inferred Economic and Financial States and Realized Financial Market Volatility"
+          <span class="badge badge-wip">Work in Progress</span>
+        </div>
+      </li>
+
+      <li>
+        <div class="paper-title">
+          "How Good Are Time Series LLMs in Predicting Economic and Financial Time Series in Short and Long Horizons?"
+          <span class="badge badge-wip">Work in Progress</span>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- POLICY WORK -->
+  <section id="policy">
+    <h2>Policy Work</h2>
+    <ul class="policy-list">
+      <li>
+        <div class="policy-year">2019–</div>
+        <div class="policy-desc">Quantitative policy analysis on financial market risks and financial stability at the Federal Reserve Board of Governors, including contributions to the Fed's <em>Financial Stability Reports</em>. Led and contributed to large-scale policy projects within the Federal Reserve System, collaborating with international organizations including central banks, the BIS, and IOSCO on regulatory frameworks and market stability.</div>
+      </li>
+      <li>
+        <div class="policy-year">2017–2019</div>
+        <div class="policy-desc">Market risk analytics at Barclays Capital: end-to-end development and deployment of models for market risk, stress testing, forecasting, and stress scenario design.</div>
+      </li>
+      <li>
+        <div class="policy-year">2015–2017</div>
+        <div class="policy-desc">Managed engagements at Oliver Wyman on stress testing, model risk management, model development and validation, market and trading-book risk, and fraud detection. Led CCAR submissions for large financial institutions across the USA, Canada, and UK.</div>
+      </li>
+      <li>
+        <div class="policy-year">2014–2015</div>
+        <div class="policy-desc">Research and policy analysis at the Office of the Comptroller of the Currency, supporting supervision of U.S. G-SIBs and contributing to initiatives on model risk management, Basel 2.5/3.0 implementation, and stress testing.</div>
+      </li>
+      <li>
+        <div class="policy-year">2011–2014</div>
+        <div class="policy-desc">Research and policy analysis at the Federal Reserve Bank of Atlanta, supporting system-wide supervision across credit, liquidity, market, and operational risks, and contributing to CCAR and DFAST examinations and loan loss projection model development.</div>
+      </li>
+    </ul>
+
+    <div class="disclaimer">
+      The analysis and opinions set forth in this webpage are solely mine and do not indicate
+      concurrence by other members of the FRB and Federal Reserve System staff or the Board of Governors.
+    </div>
+  </section>
+
+  <!-- LINKEDIN -->
+  <section id="linkedin">
+    <h2>LinkedIn</h2>
+    <p style="font-size:15.5px; color:var(--ink-mid); margin-bottom:1.25rem;">
+      Connect on LinkedIn for professional updates and further background on work and research.
+    </p>
+    <div class="links-grid">
+      <a class="ext-link" href="https://www.linkedin.com/in/rehim-kilic" target="_blank" rel="noopener">LinkedIn Profile ↗</a>
+      <a class="ext-link" href="https://www.federalreserve.gov/econres/rehim-kilic.htm" target="_blank" rel="noopener">Fed Research Profile ↗</a>
+    </div>
+  </section>
+
+  <!-- TEACHING -->
+  <section id="teaching">
+    <h2>Teaching</h2>
+    <p style="font-size:15.5px; color:var(--ink-mid); margin-bottom:1.75rem;">
+      Courses taught at Georgia Institute of Technology, Koç University, Emory University,
+      and the University of Maryland, spanning undergraduate and graduate levels.
+    </p>
+
+    <div class="teaching-block">
+      <h3>Econometrics &amp; Statistics</h3>
+      <ul>
+        <li>Econometrics (undergraduate and graduate)</li>
+        <li>Applied Econometrics: Panel Data, Machine Learning Models, and Time Series</li>
+        <li>Time Series Econometrics</li>
+        <li>Financial Econometrics</li>
+        <li>Probability and Statistics</li>
+        <li>Discrete Choice Models</li>
+      </ul>
+    </div>
+
+    <div class="teaching-block">
+      <h3>Finance &amp; Economics</h3>
+      <ul>
+        <li>International Finance</li>
+        <li>Forecasting for Business and Economics</li>
+        <li>Macroeconomics</li>
+        <li>Microeconomics</li>
+        <li>Global Financial Markets</li>
+        <li>International Trade</li>
+      </ul>
+    </div>
+
+    <div class="teaching-block">
+      <h3>Institutions</h3>
+      <ul>
+        <li>Georgia Institute of Technology, School of Economics (2002–2010)</li>
+        <li>Koç University, Department of Economics (2010–2011)</li>
+        <li>Emory University, Department of Economics (2014, 2015)</li>
+        <li>University of Maryland, Department of Economics &amp; School of Public Policy (2023)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>Rehim Kilic &nbsp;·&nbsp; Washington, DC</span>
+    <span>Last updated: 2025</span>
+  </footer>
+
+</div>
+</body>
+</html>
