@@ -242,8 +242,17 @@ body { display: flex; font-family: var(--serif); font-size: 17px; line-height: 1
       </li>
       <li>
         <div class="ptitle">&ldquo;Virtue or Mirage? Complexity in Exchange Rate Prediction&rdquo; <span class="badge br">Under Review</span></div>
-        <div class="pmeta">Under review. &nbsp;<a href="RV_Revision_Draft_May2026.pdf">FEDS Working Paper</a></div>
-      </li>
+        <div class="pmeta">Under review, <em>Journal of Banking and Finance</em>. &nbsp;<a href="#">FEDS Working Paper</a></div>
+        <div class="overview">
+          <p>This paper asks whether the latest generation of high-dimensional machine-learning models can finally crack the long-standing puzzle of exchange rate forecasting. Since Meese and Rogoff (1983), researchers have known that even sophisticated structural models typically cannot beat a naive random walk forecast. The paper tests whether Ridge regression with Random Fourier Features &mdash; a method recently shown to work well in stock return prediction &mdash; can change that verdict for eight major USD currency pairs.</p>
+          <p>The answer is a qualified no. At short training windows, the machine-learning model dramatically outperforms simple linear regression, but this reflects its ability to stay close to the random walk through heavy regularization rather than genuine predictive signal. At longer windows, Taylor-rule fundamentals reveal modest predictive content for a handful of currencies &mdash; the Australian dollar, Swiss franc, and Japanese yen &mdash; but this is currency-specific rather than systematic. The cross-currency average out-of-sample R&sup2; remains negative at every specification: the random walk is never beaten in aggregate. The paper also shows that apparent gains in trading strategies largely reflect drift-capture artifacts that vanish once the model includes an intercept.</p>
+          <p>The deeper finding is that the failure of complexity in FX is structural, not a matter of miscalibration. The signal strength in monthly exchange rate fundamentals is estimated to be orders of magnitude too weak for high-dimensional complexity to exploit &mdash; a fundamental difference from equity markets. The broader lesson is that predictive success depends not on computational power but on the richness of the available signal, and in FX that signal remains elusive.</p>
+          <figure class="paper-fig">
+            <img src="fx_figure.svg" alt="Matrix showing Ridge-RFF beats OLS at short windows but neither model beats the random walk at the cross-currency level">
+            <figcaption>Summary of out-of-sample results across predictor sets and training windows. While Ridge&ndash;RFF consistently outperforms OLS, especially at short windows, the cross-currency mean out-of-sample R&sup2; remains negative throughout. The random walk benchmark is unbeaten at the panel level in every configuration.</figcaption>
+          </figure>
+      </div>
+    </li>      
       <li>
         <div class="ptitle">&ldquo;Identifying Conditions for Time Series Forecasting Performances of ML Models: A Monte Carlo Investigation&rdquo; <span class="badge bp">In Preparation</span></div>
         <div class="pmeta">With N. Ozden (University of Houston). First draft: August 2025.</div>
