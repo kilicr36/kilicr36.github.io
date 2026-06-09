@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" width="680" height="410" role="img" font-family="'Instrument Sans', system-ui, sans-serif" font-size="11">
+  <title>Ridge-RFF vs OLS vs the random walk across training windows and predictor sets</title>
+  <desc>A matrix showing that Ridge-RFF beats OLS at short windows but neither model reliably beats the random walk at the cross-currency level. Under Taylor-rule fundamentals at medium and long windows, three currencies (AUD, CHF, JPY) achieve positive out-of-sample R-squared, but cross-currency averages remain negative throughout.</desc>
+
+  <!-- Background -->
+  <rect width="680" height="410" fill="#f9f8f5"/>
+
+  <!-- ── COLUMN HEADERS ── -->
+  <text x="230" y="22" text-anchor="middle" font-weight="500" fill="#1c1c1a">T = 12 months</text>
+  <text x="230" y="36" text-anchor="middle" fill="#888880">Short window</text>
+  <text x="400" y="22" text-anchor="middle" font-weight="500" fill="#1c1c1a">T = 60 months</text>
+  <text x="400" y="36" text-anchor="middle" fill="#888880">Medium window</text>
+  <text x="570" y="22" text-anchor="middle" font-weight="500" fill="#1c1c1a">T = 120 months</text>
+  <text x="570" y="36" text-anchor="middle" fill="#888880">Long window</text>
+
+  <!-- ── ROW HEADERS ── -->
+  <text x="76" y="148" text-anchor="middle" font-weight="500" fill="#1c1c1a">Taylor-rule</text>
+  <text x="76" y="163" text-anchor="middle" fill="#888880">fundamentals</text>
+  <text x="76" y="285" text-anchor="middle" font-weight="500" fill="#1c1c1a">Monetary</text>
+  <text x="76" y="300" text-anchor="middle" fill="#888880">fundamentals</text>
+
+  <!-- ── GRID ── -->
+  <line x1="140" y1="50" x2="640" y2="50"  stroke="#e6e4de" stroke-width="0.5"/>
+  <line x1="140" y1="195" x2="640" y2="195" stroke="#e6e4de" stroke-width="0.5"/>
+  <line x1="140" y1="330" x2="640" y2="330" stroke="#e6e4de" stroke-width="0.5"/>
+  <line x1="140" y1="50"  x2="140" y2="330" stroke="#e6e4de" stroke-width="0.5"/>
+  <line x1="315" y1="50"  x2="315" y2="330" stroke="#e6e4de" stroke-width="0.5"/>
+  <line x1="485" y1="50"  x2="485" y2="330" stroke="#e6e4de" stroke-width="0.5"/>
+  <line x1="640" y1="50"  x2="640" y2="330" stroke="#e6e4de" stroke-width="0.5"/>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- ROW 1 — TAYLOR-RULE FUNDAMENTALS       -->
+  <!-- ═══════════════════════════════════════ -->
+
+  <!-- Cell (Taylor, T=12): RFF beats OLS / neither beats RW -->
+  <rect x="150" y="60" width="154" height="30" rx="4" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <text x="227" y="79" text-anchor="middle" dominant-baseline="central" fill="#0C447C">RFF beats OLS by up to 97%</text>
+
+  <rect x="150" y="98" width="154" height="30" rx="4" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
+  <text x="227" y="117" text-anchor="middle" dominant-baseline="central" fill="#444441">Neither beats random walk</text>
+
+  <text x="227" y="162" text-anchor="middle" fill="#993C1D" font-weight="500">Mean R&#178; &lt; 0</text>
+
+  <!-- Cell (Taylor, T=60): RFF retains edge / AUD CHF JPY beat RW -->
+  <rect x="325" y="60" width="150" height="30" rx="4" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <text x="400" y="79" text-anchor="middle" dominant-baseline="central" fill="#0C447C">RFF retains edge over OLS</text>
+
+  <rect x="325" y="98" width="150" height="30" rx="4" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="400" y="117" text-anchor="middle" dominant-baseline="central" fill="#085041">AUD, CHF, JPY beat RW</text>
+
+  <text x="400" y="162" text-anchor="middle" fill="#0F6E56" font-weight="500">3 of 8 currencies</text>
+
+  <!-- Cell (Taylor, T=120): RFF mostly ahead / same 3 beat RW -->
+  <rect x="495" y="60" width="135" height="30" rx="4" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <text x="562" y="79" text-anchor="middle" dominant-baseline="central" fill="#0C447C">RFF mostly ahead of OLS</text>
+
+  <rect x="495" y="98" width="135" height="30" rx="4" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="562" y="117" text-anchor="middle" dominant-baseline="central" fill="#085041">AUD, CHF, JPY beat RW</text>
+
+  <text x="562" y="162" text-anchor="middle" fill="#0F6E56" font-weight="500">3 of 8 currencies</text>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- ROW 2 — MONETARY FUNDAMENTALS          -->
+  <!-- ═══════════════════════════════════════ -->
+
+  <!-- Cell (Monetary, T=12): RFF beats OLS / JPY only beats RW -->
+  <rect x="150" y="205" width="154" height="30" rx="4" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <text x="227" y="224" text-anchor="middle" dominant-baseline="central" fill="#0C447C">RFF beats OLS clearly</text>
+
+  <rect x="150" y="243" width="154" height="30" rx="4" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.5"/>
+  <text x="227" y="262" text-anchor="middle" dominant-baseline="central" fill="#633806">JPY only beats RW</text>
+
+  <text x="227" y="300" text-anchor="middle" fill="#993C1D" font-weight="500">Mean R&#178; &lt; 0</text>
+
+  <!-- Cell (Monetary, T=60): RFF advantage fades — hatched -->
+  <rect x="325" y="205" width="150" height="118" rx="4" fill="#F1EFE8" stroke="#888780" stroke-width="0.5" stroke-dasharray="4 3"/>
+  <text x="400" y="248" text-anchor="middle" fill="#4c4c48">RFF advantage fades</text>
+  <text x="400" y="266" text-anchor="middle" fill="#4c4c48">OLS beats RFF (CHF)</text>
+  <text x="400" y="300" text-anchor="middle" fill="#993C1D" font-weight="500">Mean R&#178; &lt; 0</text>
+
+  <!-- Cell (Monetary, T=120): RFF ≈ OLS / OLS CAD beats RW -->
+  <rect x="495" y="205" width="135" height="30" rx="4" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
+  <text x="562" y="224" text-anchor="middle" dominant-baseline="central" fill="#444441">RFF &#8776; OLS, no edge</text>
+
+  <rect x="495" y="243" width="135" height="30" rx="4" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.5"/>
+  <text x="562" y="262" text-anchor="middle" dominant-baseline="central" fill="#633806">OLS (CAD) beats RW</text>
+
+  <text x="562" y="300" text-anchor="middle" fill="#993C1D" font-weight="500">Mean R&#178; &lt; 0</text>
+
+  <!-- ── BOTTOM BANNER ── -->
+  <rect x="140" y="342" width="500" height="34" rx="4" fill="#FCEBEB" stroke="#E24B4A" stroke-width="0.6"/>
+  <text x="390" y="363" text-anchor="middle" dominant-baseline="central" fill="#A32D2D" font-weight="500">
+    Cross-currency mean R&#178; remains negative at every window and predictor set &#8212; random walk unbeaten in aggregate
+  </text>
+
+  <!-- ── LEGEND ── -->
+  <rect x="140" y="388" width="10" height="10" rx="2" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <text x="154" y="397" fill="#4c4c48">RFF beats OLS</text>
+
+  <rect x="258" y="388" width="10" height="10" rx="2" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="272" y="397" fill="#4c4c48">Some currencies beat RW</text>
+
+  <rect x="426" y="388" width="10" height="10" rx="2" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.5"/>
+  <text x="440" y="397" fill="#4c4c48">Limited / single currency</text>
+
+  <rect x="575" y="388" width="10" height="10" rx="2" fill="#F1EFE8" stroke="#888780" stroke-width="0.5" stroke-dasharray="3 2"/>
+  <text x="589" y="397" fill="#4c4c48">RFF loses edge</text>
+</svg>
